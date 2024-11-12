@@ -1,0 +1,54 @@
+﻿<Window x:Class="FunkyProgressBar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FunkyProgressBar"
+        mc:Ignorable="d"
+        Topmost="True"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="500" Width="500">
+
+    <Window.Resources>
+        <Path x:Key="LoadingPath"
+              Data="m 54.374459,84.546261 a 13.264222,13.264222 0 0 0 -13.264306,13.264307 13.264222,13.264222 0 0 0 0.01757,0.49816 c -0.01094,0.102645 -0.01757,0.206482 -0.01757,0.312124 v 92.182488 c 0,1.60104 1.288704,2.89026 2.889746,2.89026 1.601042,0 2.890262,-1.28922 2.890262,-2.89026 v -5.8229 l 5.987232,-14.2875 -0.0026,-0.001 3.643189,-8.69456 h 5.16e-4 l 5.17e-4,-0.002 h -5.17e-4 l 0.03049,-2.31252 -9.658842,-0.001 V 98.620852 c 0,-0.07037 -0.0054,-0.139169 -0.01033,-0.208254 a 13.264222,13.264222 0 0 1 8.442379,-8.075993 h 8.016048 a 13.264222,13.264222 0 0 1 0.0217,0.0062 h 1.973523 a 13.264222,13.264222 0 0 0 -0.0047,-0.0062 h 43.172041 c 1.60104,0 2.88975,-1.288705 2.88975,-2.889746 0,-1.601042 -1.28871,-2.890263 -2.88975,-2.890263 H 55.29585 c -0.08595,0 -0.17077,0.0056 -0.254765,0.01292 a 13.264222,13.264222 0 0 0 -0.666626,-0.02325 z" />
+    </Window.Resources>
+
+    <Grid>
+        <Slider Minimum="0" Maximum="100"
+                Margin="10"
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200"
+                Value="{Binding ProgressValue, Mode=TwoWay}"/>
+
+        <Viewbox Width="400" Height="400">
+            <Grid>
+                <!-- Background Path -->
+                <Path Stroke="LightGray"
+                  StrokeThickness="1"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Data="m 54.374459,84.546261 a 13.264222,13.264222 0 0 0 -13.264306,13.264307 13.264222,13.264222 0 0 0 0.01757,0.49816 c -0.01094,0.102645 -0.01757,0.206482 -0.01757,0.312124 v 92.182488 c 0,1.60104 1.288704,2.89026 2.889746,2.89026 1.601042,0 2.890262,-1.28922 2.890262,-2.89026 v -5.8229 l 5.987232,-14.2875 -0.0026,-0.001 3.643189,-8.69456 h 5.16e-4 l 5.17e-4,-0.002 h -5.17e-4 l 0.03049,-2.31252 -9.658842,-0.001 V 98.620852 c 0,-0.07037 -0.0054,-0.139169 -0.01033,-0.208254 a 13.264222,13.264222 0 0 1 8.442379,-8.075993 h 8.016048 a 13.264222,13.264222 0 0 1 0.0217,0.0062 h 1.973523 a 13.264222,13.264222 0 0 0 -0.0047,-0.0062 h 43.172041 c 1.60104,0 2.88975,-1.288705 2.88975,-2.889746 0,-1.601042 -1.28871,-2.890263 -2.88975,-2.890263 H 55.29585 c -0.08595,0 -0.17077,0.0056 -0.254765,0.01292 a 13.264222,13.264222 0 0 0 -0.666626,-0.02325 z"/>
+
+                <!-- Progress Path -->
+                <Path x:Name="ProgressPath"
+                      Stroke="Black"
+                      StrokeThickness="1"
+                      StrokeStartLineCap="Round"
+                      StrokeEndLineCap="Round"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Data="m 54.374459,84.546261 a 13.264222,13.264222 0 0 0 -13.264306,13.264307 13.264222,13.264222 0 0 0 0.01757,0.49816 c -0.01094,0.102645 -0.01757,0.206482 -0.01757,0.312124 v 92.182488 c 0,1.60104 1.288704,2.89026 2.889746,2.89026 1.601042,0 2.890262,-1.28922 2.890262,-2.89026 v -5.8229 l 5.987232,-14.2875 -0.0026,-0.001 3.643189,-8.69456 h 5.16e-4 l 5.17e-4,-0.002 h -5.17e-4 l 0.03049,-2.31252 -9.658842,-0.001 V 98.620852 c 0,-0.07037 -0.0054,-0.139169 -0.01033,-0.208254 a 13.264222,13.264222 0 0 1 8.442379,-8.075993 h 8.016048 a 13.264222,13.264222 0 0 1 0.0217,0.0062 h 1.973523 a 13.264222,13.264222 0 0 0 -0.0047,-0.0062 h 43.172041 c 1.60104,0 2.88975,-1.288705 2.88975,-2.889746 0,-1.601042 -1.28871,-2.890263 -2.88975,-2.890263 H 55.29585 c -0.08595,0 -0.17077,0.0056 -0.254765,0.01292 a 13.264222,13.264222 0 0 0 -0.666626,-0.02325 z">
+                    <Path.Fill>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                            <GradientStop x:Name="RedGradientStop"/>
+                            <GradientStop x:Name="OrangeGradientStop"/>
+                            <GradientStop x:Name="YellowGradientStop"/>
+                            <GradientStop x:Name="GreenGradientStop"/>
+                            <GradientStop Color="Transparent" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+            </Grid>
+        </Viewbox>
+    </Grid>
+</Window>
